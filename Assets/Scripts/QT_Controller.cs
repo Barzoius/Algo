@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QT_Controller : MonoBehaviour
 {
+
+    public GameObject textPrefab;
+    public Transform contentPanel;
+
     public GameObject pointPrefab;
     private int numPoints = 0;
 
@@ -38,10 +43,13 @@ public class QT_Controller : MonoBehaviour
             }
         }
 
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    qt.ConstructQuadTree(); 
-        //}
+        if (qt.deque.Last != null)
+        {
+            string a = qt.deque.Last.Value.ToString();
+            AddText(a);
+            qt.deque.RemoveLast();
+        }
+
     }
 
     Vector3 GetMouseWorldPosition()
@@ -49,5 +57,12 @@ public class QT_Controller : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = Camera.main.nearClipPlane;
         return Camera.main.ScreenToWorldPoint(mousePosition);
+    }
+
+
+    public void AddText(string text)
+    {
+        GameObject newText = Instantiate(textPrefab, contentPanel);
+        newText.GetComponent<TMP_Text>().text = text;
     }
 }
