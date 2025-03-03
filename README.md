@@ -19,7 +19,7 @@ to a square. If a node ν has children, then their
 corresponding squares are the four quadrants
 of the square of ν (hence the name of the tree).
 
-<img src="Assets/ForReadMe/qt_diag.png" alt="Framework Diagram" style="width:100%;">
+<img src="ForReadMe/qt_diag.png" alt="Framework Diagram" style="width:100%;">
 
 ### Quadtree Construction
 
